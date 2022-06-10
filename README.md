@@ -11,6 +11,7 @@ cd src
 ../venv/Scripts/activate
 pip install Django
 django-admin startproject traveleasy .
+python manage.py startapp destinations
 ```
 
 ## Auxiliar Commands
