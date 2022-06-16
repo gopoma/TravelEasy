@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class DestinosTuristicos(models.Model):
-    nombreCiudad = models.charField(max_length=255)
+    nombreCiudad = models.CharField(max_length=255)
     descripcionCiudad = models.TextField()
     imagenCiudad = models.ImageField(upload_to="pics")
     precioTour = models.FloatField()
