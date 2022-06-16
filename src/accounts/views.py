@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 # Create your views here.
@@ -16,13 +17,19 @@ def user_signup(request):
         password_confirmation = request.POST["password_confirmation"]
 
         if password != password_confirmation:
-            return HttpResponse("Passwords not matching...")
+            success = False
+            messages.info(request, "Passwords don't match...")
+            return redirect("/auth/signup", {"userData": request.POST})
 
-        if User.objects.filter(username=username):
-            return HttpResponse("Username taken")
+        if  User.objects.filter(username=username):
+            success = False
+            messages.info(request, "Username taken...")
+            return redirect("/auth/signup", {"userData": request.POST})
 
         if User.objects.filter(email=email).exists():
-            return HttpResponse("Email taken")
+            success = False
+            messages.info(request, "Email taken...")
+            return redirect("/auth/signup", {"userData": request.POST})
 
         newUser = User.objects.create_user(
             username=username,
