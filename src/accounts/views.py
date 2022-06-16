@@ -16,18 +16,21 @@ def user_signup(request):
         password = request.POST["password"]
         password_confirmation = request.POST["password_confirmation"]
 
+        # To avoid the null=False CONSTRAINT
+        if not first_name or not last_name or not username or not email or not password or not password_confirmation:
+            messages.info(request, "Fill all the fields...")
+            return redirect("/auth/signup")
+
+        # Passwords have to match each other
         if password != password_confirmation:
-            success = False
             messages.info(request, "Passwords don't match...")
             return redirect("/auth/signup")
 
         if  User.objects.filter(username=username):
-            success = False
             messages.info(request, "Username taken...")
             return redirect("/auth/signup")
 
         if User.objects.filter(email=email).exists():
-            success = False
             messages.info(request, "Email taken...")
             return redirect("/auth/signup")
 
