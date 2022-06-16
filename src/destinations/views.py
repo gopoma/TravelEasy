@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import DestinoTuristico
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Fallback")
-    # destinations = DestinosTuristicos.objects.all()
-    # return render(request, "home.html", {"destinations": destinations})
+    destinations = DestinoTuristico.objects.all()
+    return render(request, "home.html", {"destinations": destinations})
