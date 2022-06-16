@@ -15,6 +15,15 @@ def user_signup(request):
         password = request.POST["password"]
         password_confirmation = request.POST["password_confirmation"]
 
+        if password != password_confirmation:
+            return HttpResponse("Passwords not matching...")
+
+        if User.objects.filter(username=username):
+            return HttpResponse("Username taken")
+
+        if User.objects.filter(email=email).exists():
+            return HttpResponse("Email taken")
+
         newUser = User.objects.create_user(
             username=username,
             password=password,
@@ -22,6 +31,7 @@ def user_signup(request):
             first_name=first_name,
             last_name=last_name,
         )
+        newUser.save()
 
         print("The user was CREATED", newUser)
         return redirect("/")
