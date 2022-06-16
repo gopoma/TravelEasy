@@ -19,17 +19,17 @@ def user_signup(request):
         if password != password_confirmation:
             success = False
             messages.info(request, "Passwords don't match...")
-            return redirect("/auth/signup", {"userData": request.POST})
+            return redirect("/auth/signup")
 
         if  User.objects.filter(username=username):
             success = False
             messages.info(request, "Username taken...")
-            return redirect("/auth/signup", {"userData": request.POST})
+            return redirect("/auth/signup")
 
         if User.objects.filter(email=email).exists():
             success = False
             messages.info(request, "Email taken...")
-            return redirect("/auth/signup", {"userData": request.POST})
+            return redirect("/auth/signup")
 
         newUser = User.objects.create_user(
             username=username,
