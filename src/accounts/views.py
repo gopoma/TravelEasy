@@ -57,9 +57,7 @@ def user_signup(request):
             last_name=last_name,
         )
         newUser.save()
-
-        print("The user was CREATED", newUser)
-        return redirect("/")
+        return redirect("/auth/login")
     return render(request, "accounts/signup.html")
 
 def user_logout(request):
