@@ -15,9 +15,11 @@ def user_login(request):
         )
 
         if user is not None:
-            print("A wild user has appeared!")
+            auth.login(request, user)
+            return redirect("/")
         else:
-            print("Invalid credentials")
+            messages.info(request, "Invalid credentials")
+            return redirect("/auth/login")
     return render(request, "accounts/login.html")
 
 def user_signup(request):
