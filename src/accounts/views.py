@@ -5,6 +5,8 @@ from django.contrib.auth.models import User, auth
 
 # Create your views here.
 def user_login(request):
+    print(request.POST)
+    messages.info(request, "Hola mundo desde Django!")
     return render(request, "accounts/login.html")
 
 def user_signup(request):
