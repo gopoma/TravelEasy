@@ -1,7 +1,12 @@
 <nav>
     <ul>
         <a href="/">Home</a>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/signup">SignUp</a>
+        {% if user.is_authenticated %}
+            <li>Hi {{ user.username }}!</li>
+            <a href="/auth/logout">Logout</a>
+        {% else %}
+            <a href="/auth/login">Login</a>
+            <a href="/auth/signup">SignUp</a>
+        {% endif %}
     </ul>
 </nav>

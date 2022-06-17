@@ -34,8 +34,13 @@
 									<ul class="d-flex flex-row align-items-start justify-content-start">
 										<li class="active"><a href="index.html">Home</a></li>
 										<li><a href="contact.html">Contact</a></li>
-                                        <li><a href="/auth/login">Login</a></li>
-					                    <li><a href="/auth/signup">SignUp</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li>Hi, {{ user.username }}!</li>
+                                            <li><a href="/auth/logout">Logout</a></li>
+                                        {% else %}
+                                            <li><a href="/auth/login">Login</a></li>
+					                        <li><a href="/auth/signup">SignUp</a></li>
+                                        {% endif %}
 									</ul>
 								</nav>
 								<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -79,8 +84,13 @@
 				<ul>
 					<li><a href="inex.html">Home</a></li>
 					<li><a href="contact.html">Contact</a></li>
-                    <li><a href="/auth/login">Login</a></li>
-					<li><a href="/auth/signup">SignUp</a></li>
+                    {% if user.is_authenticated %}
+                        <li>Hi {{ user.username }}!</li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/auth/login">Login</a></li>
+					    <li><a href="/auth/signup">SignUp</a></li>
+                    {% endif %}
 				</ul>
 			</div>
 			<div class="menu_social">
