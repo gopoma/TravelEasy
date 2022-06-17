@@ -1,6 +1,17 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    <h1>Some Random Page</h1>
-    <p>Destination's id inserted in URL: {{ id_destination }}</p>
+    <div>
+        <img style="width:10.25rem;height:10.25rem;" src="{{ destination.imagenCiudad.url }}" alt="{{ destination.nombreCiudad }}">
+    </div>
+    <h1>{{ destination.nombreCiudad }}</h1>
+    <p><b>Descripción: </b>{{ destination.descripcionCiudad }}</p>
+    <p><b>En Oferta?: </b>
+        {% if destination.ofertaTour %}
+            Sí
+        {% else %}
+            No
+        {% endif %}
+    </p>
+    <p><b>Precio: </b>{{ destination.precioTour }}</p>
 {% endblock %}  

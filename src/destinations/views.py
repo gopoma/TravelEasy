@@ -15,5 +15,4 @@ def show_details(request, id_destination):
         return HttpResponse("Not Found...")
 
     destination = DestinoTuristico.objects.get(id=id_destination)
-    print(destination)
-    return render(request, "destinations/destination.html", {"id_destination": id_destination})
+    return render(request, "destinations/destination.html", {"destination": destination})
