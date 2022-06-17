@@ -5,8 +5,19 @@ from django.contrib.auth.models import User, auth
 
 # Create your views here.
 def user_login(request):
-    print(request.POST)
-    messages.info(request, "Hola mundo desde Django!")
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        user = auth.authenticate(
+            username=username,
+            password=password
+        )
+
+        if user is not None:
+            print("A wild user has appeared!")
+        else:
+            print("Invalid credentials")
     return render(request, "accounts/login.html")
 
 def user_signup(request):
