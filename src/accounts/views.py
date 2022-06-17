@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
@@ -61,4 +60,5 @@ def user_signup(request):
     return render(request, "accounts/signup.html")
 
 def user_logout(request):
-    return HttpResponse("Logout...")
+    auth.logout(request)
+    return redirect("/")
