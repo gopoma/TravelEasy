@@ -7,9 +7,18 @@ def home(request):
     destinations = DestinoTuristico.objects.all()
     return render(request, "home.html", {"destinations": destinations})
 
+def destinationsListView(request):
+    if not request.user.is_authenticated:
+        return render(request, "notAllowed.html")
+
+    destinations = DestinoTuristico.objects.all()
+    return render(request, "destinations/destinations.html", {
+        "destinations": destinations
+    })
+
 def show_details(request, id_destination):
     if not request.user.is_authenticated:
-        return HttpResponse("Forbidden...")
+        return render(request, "notAllowed.html")
 
     if not DestinoTuristico.objects.filter(id=id_destination).exists():
         return HttpResponse("Not Found...")

@@ -1,0 +1,53 @@
+{% extends 'layouts/main-layout.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <style>
+        th, td {
+            border: 2px solid #000;
+            padding: 0.75rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .managing-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for destination in destinations %}
+                <tr>
+                    <td>{{ destination }}</td>
+                    <td>
+                        <a class="managing-icon" href="#">
+                            <img src="{% static 'images/browsing.svg' %}" alt="View" width="25" height="25">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="managing-icon" href="#">
+                            <img src="{% static 'images/editing.svg' %}" alt="Edit" width="25" height="25">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="managing-icon" href="#">
+                            <img src="{% static 'images/deleting.svg' %}" alt="Delete" width="25" height="25">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -2,7 +2,10 @@
     <ul>
         <a href="/">Home</a>
         {% if user.is_authenticated %}
-            <li>Hi {{ user.username }}!</li>
+            {% if user.is_staff %}
+                <a href="/destinations">Destinations</a>
+            {% endif %}
+            <a href="#">{{ user.username }}</a>
             <a href="/auth/logout">Logout</a>
         {% else %}
             <a href="/auth/login">Login</a>

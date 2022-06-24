@@ -9,4 +9,4 @@ class DestinoTuristico(models.Model):
     ofertaTour = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.nombreCiudad} [Is on offer?: {self.ofertaTour}]"
+        return f"{self.nombreCiudad}"

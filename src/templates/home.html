@@ -35,7 +35,10 @@
 										<li class="active"><a href="index.html">Home</a></li>
 										<li><a href="contact.html">Contact</a></li>
                                         {% if user.is_authenticated %}
-                                            <li>Hi, {{ user.username }}!</li>
+                                            {% if user.is_staff %}
+                                                <li><a href="/destinations">Destinations</a></li>
+                                            {% endif %}
+                                            <li><a href="#">{{ user.username }}</a></li>
                                             <li><a href="/auth/logout">Logout</a></li>
                                         {% else %}
                                             <li><a href="/auth/login">Login</a></li>
@@ -85,7 +88,10 @@
 					<li><a href="inex.html">Home</a></li>
 					<li><a href="contact.html">Contact</a></li>
                     {% if user.is_authenticated %}
-                        <li>Hi {{ user.username }}!</li>
+                        {% if user.is_staff %}
+                            <li><a href="/destinations">Destinations</a></li>
+                        {% endif %}
+                        <li><a href="#">{{ user.username }}</a></li>
                         <li><a href="/auth/logout">Logout</a></li>
                     {% else %}
                         <li><a href="/auth/login">Login</a></li>
