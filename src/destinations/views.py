@@ -25,6 +25,8 @@ def show_details(request, id_destination):
     return render(request, "destinations/destination.html", {"destination": destination})
 
 def destinationCreateView(request):
+    if not request.user.is_staff:
+        return render(request, "notAllowed.html")
     create_form = DestinoTuristicoForm(request.POST or None, request.FILES or None)
     if request.method == "POST":
         if create_form.is_valid():
@@ -37,13 +39,15 @@ def destinationEditView(request, id_destination):
         return render(request, "notAllowed.html")
     
     destination = get_object_or_404(DestinoTuristico, id=id_destination)
-    edit_form = DestinoTuristicoForm(request.POST or None, instance=destination)
+    edit_form = DestinoTuristicoForm(request.POST or None, request.FILES or None, instance=destination)
     if request.method == "POST" and edit_form.is_valid():
         edit_form.save()
         return redirect("/destinations")
     return render(request, "destinations/edit.html", { "edit_form": edit_form })
 
 def destinationDeleteView(request, id_destination):
+    if not request.user.is_staff:
+        return render(request, "notAllowed.html")
     destination = get_object_or_404(DestinoTuristico, id=id_destination)
 
     if request.method == "POST":
