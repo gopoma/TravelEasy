@@ -42,3 +42,13 @@ def destinationEditView(request, id_destination):
         edit_form.save()
         return redirect("/destinations")
     return render(request, "destinations/edit.html", { "edit_form": edit_form })
+
+def destinationDeleteView(request, id_destination):
+    destination = get_object_or_404(DestinoTuristico, id=id_destination)
+
+    if request.method == "POST":
+        destination.delete()
+        return redirect("/destinations")
+    return render(request, "destinations/delete.html", {
+        "destination": destination
+    })

@@ -1,0 +1,12 @@
+{% extends 'layouts/main-layout.html' %}
+
+{% block content %}
+    <h1>Delete DestinoTuristico</h1>
+    <form action="." method="POST">
+        <h2>¿Seguro de borrar este Destino Turístico?:</h1>
+        <h4>{{ destination.nombreCiudad }}</h4>
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+        <a href="/destinations">Cancelar</a>
+    </form>
+{% endblock %}
