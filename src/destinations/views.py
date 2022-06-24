@@ -25,10 +25,11 @@ def show_details(request, id_destination):
     return render(request, "destinations/destination.html", {"destination": destination})
 
 def destinationCreateView(request):
-    create_form = DestinoTuristicoForm(request.POST or None)
-    if request.method == "POST" and create_form.is_valid():
-        create_form.save()
-        return redirect("/destinations")
+    create_form = DestinoTuristicoForm(request.POST or None, request.FILES or None)
+    if request.method == "POST":
+        if create_form.is_valid():
+            create_form.save()
+            return redirect("/destinations")
     return render(request, "destinations/create.html", { "create_form": create_form })
 
 def destinationEditView(request, id_destination):
