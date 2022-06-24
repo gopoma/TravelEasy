@@ -32,8 +32,8 @@
                 <tr>
                     <td>{{ destination }}</td>
                     <td>
-                        <a class="managing-icon" href="#">
-                            <img src="{% static 'images/browsing.svg' %}" alt="View" width="25" height="25">
+                        <a class="managing-icon" href="{{ destination.get_absolute_url }}">
+                            <img src="{% static 'images/detailing.svg' %}" alt="View" width="25" height="25">
                         </a>
                     </td>
                     <td>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class DestinoTuristico(models.Model):
@@ -8,5 +9,7 @@ class DestinoTuristico(models.Model):
     precioTour = models.FloatField()
     ofertaTour = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse("destinations:detailing", kwargs={"id_destination": self.id})
     def __str__(self):
         return f"{self.nombreCiudad}"

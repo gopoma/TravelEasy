@@ -1,6 +1,11 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
+    {% if user.is_staff %}
+        <a href="/destinations">Go back</a>
+    {% else %}
+        <a href="../">Go back</a>
+    {% endif %}
     <div>
         <img style="width:10.25rem;height:10.25rem;" src="{{ destination.imagenCiudad.url }}" alt="{{ destination.nombreCiudad }}">
     </div>
