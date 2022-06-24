@@ -1,0 +1,10 @@
+{% extends 'layouts/main-layout.html' %}
+
+{% block content %}
+    <h1>Create DestinoTuristico</h1>
+    <form action="." method="POST">
+        {% csrf_token %}
+        {{ create_form.as_p }}
+        <input type="submit" value="Create">
+    </form>
+{% endblock %}
