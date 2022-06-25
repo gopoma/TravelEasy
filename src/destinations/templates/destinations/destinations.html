@@ -22,6 +22,16 @@
         <span>Create DestinoTuristico</span>
         <img src="{% static 'images/creating.svg' %}" alt="Create">
     </a>
+    <form action="/destinations/search" method="GET">
+        <label for="">
+            <b>offer: </b>
+            <select name="ofertaTour">
+                <option selected value="y">Yes</option>
+                <option value="n">No</option>
+            </select>
+        </label>
+        <input type="submit" value="Search">
+    </form>
     <table>
         <thead>
             <tr>
