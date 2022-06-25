@@ -94,6 +94,35 @@
     background-color:#BB2D3B;
 }
 
+.login {
+    font-size: var(--fs-lg);
+}
+/* Generic-Form */
+.form {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.form__regular-input {
+
+}
+.form__submit-btn {
+    border: 2px solid #3366CC;
+    padding: 0.25rem;
+    font-size: var(--fs-md);
+    font-weight: bold;
+    color: #FFF;
+    background-color: #3366CC;
+    cursor: pointer;
+    transition: background 0.3s ease-out;
+}
+.form__submit-btn:hover {
+    border-color: #447FF5;
+    background-color: #447FF5;
+}
+/* /Generic-Form */
+
 .footer {
     padding: 1.2rem;
     background-color: #DDD;

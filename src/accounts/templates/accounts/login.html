@@ -1,11 +1,11 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    <h1>Login</h1>
-    <form action="/auth/login/" method="POST">
+    <h1 class="login">Login</h1>
+    <form class="form" action="/auth/login/" method="POST">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username..."><br>
-        <input type="password" name="password" placeholder="Password..."><br>
-        <input type="submit" value="Login">
+        <input class="form__regular-input" type="text" name="username" placeholder="Username...">
+        <input class="form__regular-input" type="password" name="password" placeholder="Password...">
+        <input class="form__submit-btn" type="submit" value="Login">
     </form>
 {% endblock %}
