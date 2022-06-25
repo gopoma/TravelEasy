@@ -1,10 +1,10 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    <h1>Create DestinoTuristico</h1>
-    <form action="." method="POST" enctype="multipart/form-data">
+    <h2 class="form__title">Add Destino Turístico</h2>
+    <form class="form" action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ create_form.as_p }}
-        <input type="submit" value="Create">
+        <input class="form__submit-btn" type="submit" value="Create">
     </form>
 {% endblock %}
