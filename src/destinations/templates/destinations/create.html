@@ -1,7 +1,10 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    <h2 class="form__title">Add Destino Turístico</h2>
+    <div class="form__title-container">
+        <h2 class="form__title">Add Destino Turístico</h2>
+        <a class="form__cancel" href="/destinations">Cancelar</a>
+    </div>
     <form class="form" action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ create_form.as_p }}
