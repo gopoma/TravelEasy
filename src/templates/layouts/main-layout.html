@@ -23,13 +23,13 @@
             </main>
             <section class="rightcolumn">
                 <aside class="profile-card">
-                    <h3 class="profile-card__username" >{{ user.username }}</h3>
+                    <h3 class="profile-card__username" >
+                        {{ user.username }}
+                        {% if user.is_staff %}
+                            <span class="profile-card__staff">Staff</span>
+                        {% endif %}
+                    </h3>
                     <p>{{ user.first_name }} {{ user.last_name }}</p>
-                    {% if user.is_staff %}
-                    <div>
-                        <span class="profile-card__staff">Staff</span>
-                    </div>
-                    {% endif %}
                     {% if user.is_authenticated %}
                         <div>
                             <a class="profile-card__logout" href="/auth/logout">Logout</a>
