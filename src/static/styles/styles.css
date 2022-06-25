@@ -94,21 +94,27 @@
     background-color:#BB2D3B;
 }
 
-.login {
-    font-size: var(--fs-lg);
-}
 /* Generic-Form */
 .form {
+    margin-top: 0.75rem;
     width: 20vw;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
+.form__title {
+    width: 20vw;
+    border-bottom: 1px solid #000;
+    padding: 0.25rem;
+    font-size: var(--fs-lg);
+}
 .form__regular-input {
-
+    padding: 0.45rem;
+    font-size: var(--fs-md);
 }
 .form__submit-btn {
     border: 2px solid #3366CC;
+    border-radius: 4px;
     padding: 0.25rem;
     font-size: var(--fs-md);
     font-weight: bold;
