@@ -1,22 +1,24 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    {% if user.is_staff %}
-        <a href="/destinations">Go back</a>
-    {% else %}
-        <a href="../">Go back</a>
-    {% endif %}
-    <div>
-        <img style="width:10.25rem;height:10.25rem;" src="{{ destination.imagenCiudad.url }}" alt="{{ destination.nombreCiudad }}">
-    </div>
-    <h1>{{ destination.nombreCiudad }}</h1>
-    <p><b>Descripción: </b>{{ destination.descripcionCiudad }}</p>
-    <p><b>En Oferta?: </b>
-        {% if destination.ofertaTour %}
-            Sí
-        {% else %}
-            No
-        {% endif %}
-    </p>
-    <p><b>Precio: </b>${{ destination.precioTour }}</p>
+    <article class="destination">
+        <div>
+            {% if user.is_staff %}
+                <a class="destination__go-back" href="/destinations">Go back</a>
+            {% else %}
+                <a class="destination__go-back" href="/">Go back</a>
+            {% endif %}
+        </div>
+        <div class="destination__img-container">
+            <img class="destination__img" src="{{ destination.imagenCiudad.url }}" alt="{{ destination.nombreCiudad }}">
+        </div>
+        <h2 class="destination__header">
+            <span class="destination__title">{{ destination.nombreCiudad }}</span> 
+            {% if destination.ofertaTour %}
+            <span class="destination__offer">En oferta</span>
+            {% endif %}
+        </h2>
+        <strong class="destination__prizing">${{ destination.precioTour }}</strong>
+        <p class="destination__description">{{ destination.descripcionCiudad }}</p>
+    </article>
 {% endblock %}  

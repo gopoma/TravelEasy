@@ -244,6 +244,60 @@ label {
 .delete-form__cancel:hover {background-color: #666666;}
 /* /Delete-Form */
 
+/* Destination */
+.destination {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.destination__go-back {
+    display: inline-block;
+    border: 2px solid #007BFF;
+    border-radius: 4px;
+    padding: 0.45rem;
+    font-size: var(--fs-md);
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+    background-color: #007BFF;
+    transition: background 0.3s ease-out;
+}
+.destination__go-back:hover {
+    border-color: #0062CC;
+    background-color: #0069D9;
+}
+.destination__img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.destination__img {
+    width: 18rem;
+    height: 18rem;
+    border: 2px solid #000;
+}
+.destination__header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+.destination__title {
+    border-bottom: 2px solid #000;
+    font-size: var(--fs-lg);
+    font-weight: bold;
+}
+.destination__offer {
+    border-radius: 4px;
+    padding: 0.25rem;
+    font-size: var(--fs-sm);
+    color: #FFF;
+    background-color: #007BFF;
+}
+.destination__prizing {font-size: var(--fs-regular);}
+.destination__description {font-size: var(--fs-md);}
+/* /Destination */
+
 .footer {
     padding: 0.95rem;
     background-color: #DDD;
