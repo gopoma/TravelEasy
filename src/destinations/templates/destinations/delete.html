@@ -1,12 +1,13 @@
 {% extends 'layouts/main-layout.html' %}
 
 {% block content %}
-    <h1>Delete DestinoTuristico</h1>
-    <form action="." method="POST">
-        <h2>¿Seguro de borrar este Destino Turístico?:</h1>
-        <h4>{{ destination.nombreCiudad }}</h4>
-        {% csrf_token %}
-        <input type="submit" value="Delete">
-        <a href="/destinations">Cancelar</a>
-    </form>
+    <div class="delete-form__container">
+        <h2 class="delete-form__title">Are you sure?</h2>
+        <p class="delete-form__caveat">Are you sure that you wanna delete Destino Turístico <b>'{{ destination.nombreCiudad }}'</b>?</p>
+        <form class="delete-form" action="." method="POST">
+            {% csrf_token %}
+            <input class="delete-form__delete" type="submit" value="Delete">
+            <a class="delete-form__cancel" href="/destinations">No, take me back</a>
+        </form>
+    </div>
 {% endblock %}
