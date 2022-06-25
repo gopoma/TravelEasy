@@ -15,9 +15,30 @@
         <h1 class="header__title">TravelEasy Administration</h1>
     </header>
     {% include '../components/navbar.html' %}
-
-    {% block content %}
-    {% endblock %}
+    <section class="content-body">
+        <section class="main-content wrapper">
+            <main class="leftcolumn">
+                {% block content %}
+                {% endblock %}
+            </main>
+            <section class="rightcolumn">
+                <aside class="profile-card">
+                    <h3 class="profile-card__username" >{{ user.username }}</h3>
+                    <p>{{ user.first_name }} {{ user.last_name }}</p>
+                    {% if user.is_staff %}
+                    <div>
+                        <span class="profile-card__staff">Staff</span>
+                    </div>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <div>
+                            <a class="profile-card__logout" href="/auth/logout">Logout</a>
+                        </div>
+                    {% endif %}
+                </aside>
+            </section>
+        </section>
+    </section>
     <footer class="footer">
         <p class="footer__license">This page is under the MIT license</p>
     </footer>
