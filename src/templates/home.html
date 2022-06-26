@@ -32,13 +32,12 @@
 								<div class="logo"><a href="index.html">Travello</a></div>
 								<nav class="main_nav">
 									<ul class="d-flex flex-row align-items-start justify-content-start">
-										<li class="active"><a href="index.html">Home</a></li>
+										<li class="active"><a href="#">Home</a></li>
 										<li><a href="contact.html">Contact</a></li>
                                         {% if user.is_authenticated %}
                                             {% if user.is_staff %}
                                                 <li><a href="/destinations">Destinations</a></li>
                                             {% endif %}
-                                            <li><a href="#">{{ user.username }}</a></li>
                                             <li><a href="/auth/logout">Logout</a></li>
                                         {% else %}
                                             <li><a href="/auth/login">Login</a></li>
@@ -85,13 +84,12 @@
 			</div>
 			<div class="menu_content">
 				<ul>
-					<li><a href="inex.html">Home</a></li>
+					<li><a href="#">Home</a></li>
 					<li><a href="contact.html">Contact</a></li>
                     {% if user.is_authenticated %}
                         {% if user.is_staff %}
                             <li><a href="/destinations">Destinations</a></li>
                         {% endif %}
-                        <li><a href="#">{{ user.username }}</a></li>
                         <li><a href="/auth/logout">Logout</a></li>
                     {% else %}
                         <li><a href="/auth/login">Login</a></li>
