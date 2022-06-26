@@ -1,6 +1,8 @@
-<ul>
+<ul class="messages">
     {% for message in messages %}
-        <li>{{ message }}</li>
+        <li class="messages__message messages__message--{{ message.tags }}">
+            <span>{{ message }}</span>
+            <span class="messages__closer">✘</span>
+        </li>
     {% endfor %}
 </ul>
-    

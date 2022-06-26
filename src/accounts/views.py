@@ -17,7 +17,7 @@ def user_login(request):
             auth.login(request, user)
             return redirect("/")
         else:
-            messages.info(request, "Invalid credentials")
+            messages.error(request, "Invalid credentials")
             return redirect("/auth/login")
     return render(request, "accounts/login.html")
 
@@ -32,20 +32,20 @@ def user_signup(request):
 
         # To avoid the null=False CONSTRAINT
         if not first_name or not last_name or not username or not email or not password or not password_confirmation:
-            messages.info(request, "Fill all the fields...")
+            messages.error(request, "Fill all the fields...")
             return redirect("/auth/signup")
 
         # Passwords have to match each other
         if password != password_confirmation:
-            messages.info(request, "Passwords don't match...")
+            messages.error(request, "Passwords don't match...")
             return redirect("/auth/signup")
 
         if  User.objects.filter(username=username):
-            messages.info(request, "Username taken...")
+            messages.error(request, "Username taken...")
             return redirect("/auth/signup")
 
         if User.objects.filter(email=email).exists():
-            messages.info(request, "Email taken...")
+            messages.error(request, "Email taken...")
             return redirect("/auth/signup")
 
         newUser = User.objects.create_user(

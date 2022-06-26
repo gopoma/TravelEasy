@@ -388,6 +388,33 @@ label {
     text-align: center;
 }
 
+/* Messages */
+.messages {
+    position: absolute;
+    top: 1.2rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    list-style-type: none;
+}
+.messages__message {
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.messages__message--error {
+    border: 2px solid #F5C6CB;
+    color: #721C24;
+    background-color: #F8D7DA;
+}
+.messages__closer {
+    cursor: pointer;
+}
+/* /Messages */
+
 /* Common-Error */
 .common-error-container {
     display: flex;
