@@ -58,14 +58,19 @@ def destinationDeleteView(request, id_destination):
     })
 
 def search(request):
+    nombreCiudad = request.GET.get("nombreCiudad")
     ofertaTour = request.GET.get("ofertaTour")
-    print(ofertaTour)
     queryBody = {}
     
+    if nombreCiudad is not None:
+        queryBody = {
+            **queryBody,
+            "nombreCiudad": nombreCiudad
+        }
     if ofertaTour is not None:
         queryBody = {
             **queryBody,
-            "ofertaTour": ofertaTour == "y"
+            "ofertaTour": ofertaTour == "on" or ofertaTour == "true" or ofertaTour == "1"
         }
     destinations = DestinoTuristico.objects.filter(**queryBody)
     return render(request, "destinations/destinations.html", {
