@@ -9,10 +9,11 @@
             <span>Add Destino Turístico</span>
             <img src="{% static 'images/creating.svg' %}" alt="Add Destino Turístico" width="25" height="25">
         </a>
-        <label for="switchEnableSearch">
-            Buscar en TravelEasy <input type="checkbox" id="switchEnableSearch">
+        <label class="search-form__initializer" for="switchEnableSearch">
+            <span class="search-form__initializer-message">¿Buscar en TravelEasy?:</span>
+            <input class="search-form__initializer-mark" id="switchEnableSearch" type="checkbox">
         </label>
-        <form id="searchForm" action="/destinations/search" method="GET"></form>
+        <form class="search-form" id="searchForm" action="/destinations/search" method="GET"></form>
         <table class="destinations">
             <thead>
                 <tr>
