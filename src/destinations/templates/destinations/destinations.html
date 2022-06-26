@@ -3,38 +3,41 @@
 {% load static %}
 
 {% block content %}
-    <a href="/destinations/create">
-        <span>Create DestinoTuristico</span>
-        <img src="{% static 'images/creating.svg' %}" alt="Create">
-    </a>
-    <table class="destinations">
-        <thead>
-            <tr>
-                <th>Destination</th>
-                <th colspan="3">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for destination in destinations %}
-            <tr>
-                <td>{{ destination }}</td>
-                <td>
-                    <a class="destinations__action-icon" href="{{ destination.get_absolute_url }}">
-                        <img src="{% static 'images/detailing.svg' %}" alt="View" width="25" height="25">
-                    </a>
-                </td>
-                <td>
-                    <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/edit">
-                        <img src="{% static 'images/editing.svg' %}" alt="Edit" width="25" height="25">
-                    </a>
-                </td>
-                <td>
-                    <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/delete">
-                        <img src="{% static 'images/deleting.svg' %}" alt="Delete" width="25" height="25">
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <section class="destinations-container">
+        <h2 class="destinations__title">TutoEasy Administration</h2>
+        <a class="destinations__create-btn" href="/destinations/create">
+            <span>Add Destino Turístico</span>
+            <img src="{% static 'images/creating.svg' %}" alt="Add Destino Turístico" width="25" height="25">
+        </a>
+        <table class="destinations">
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for destination in destinations %}
+                <tr>
+                    <td>{{ destination }}</td>
+                    <td>
+                        <a class="destinations__action-icon" href="{{ destination.get_absolute_url }}">
+                            <img src="{% static 'images/detailing.svg' %}" alt="View" width="25" height="25">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/edit">
+                            <img src="{% static 'images/editing.svg' %}" alt="Edit" width="25" height="25">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/delete">
+                            <img src="{% static 'images/deleting.svg' %}" alt="Delete" width="25" height="25">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
