@@ -298,6 +298,29 @@ label {
 .destination__description {font-size: var(--fs-md);}
 /* /Destination */
 
+/* Destinations */
+.destinations {
+    border-collapse: collapse;
+    font-size: var(--fs-regular);
+}
+.destinations td, .destinations th {
+    border: 1px solid #DDD;
+    padding: 0.5rem 0.75rem;
+}
+.destinations tr:nth-child(even) {background-color: #F2F2F2;}
+.destinations tr:hover {background-color: #DDD;}
+.destinations th {
+    text-align: center;
+    color: #FFF;
+    background-color: #04AA6D;
+}
+.destinations__action-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* /Destinations */
+
 .footer {
     padding: 0.95rem;
     background-color: #DDD;
