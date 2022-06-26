@@ -5,14 +5,14 @@ from .forms import DestinoTuristicoForm
 
 # Create your views here.
 def home(request):
-    destinations = DestinoTuristico.objects.all()
+    destinations = DestinoTuristico.objects.all().order_by("-id")
     return render(request, "home.html", {"destinations": destinations})
 
 def destinationsListView(request):
     if not request.user.is_staff:
         return render(request, "notAllowed.html")
 
-    destinations = DestinoTuristico.objects.all()
+    destinations = DestinoTuristico.objects.all().order_by("-id")
     return render(request, "destinations/destinations.html", {
         "destinations": destinations
     })
