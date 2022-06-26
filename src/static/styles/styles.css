@@ -390,7 +390,37 @@ label {
 
 /* Common-Error */
 .common-error-container {
-    background-color: steelblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common-error {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.common-error__img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common-error__img {
+    width: 25rem;
+    height: 25rem;
+}
+.common-error__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.common-error__title {
+    font-size: var(--fs-lg);
+    font-weight: bold;
+    text-align: center;
+}
+.common-error__content {
+    font-size: var(--fs-regular);
+    text-align: center;
 }
 /* /Common-Error */
 
