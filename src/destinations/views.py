@@ -65,7 +65,7 @@ def search(request):
     if nombreCiudad is not None:
         queryBody = {
             **queryBody,
-            "nombreCiudad": nombreCiudad
+            "nombreCiudad__icontains": nombreCiudad
         }
     if ofertaTour is not None:
         queryBody = {
