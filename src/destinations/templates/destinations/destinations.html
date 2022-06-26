@@ -19,7 +19,9 @@
             <tbody>
                 {% for destination in destinations %}
                 <tr>
-                    <td>{{ destination }}</td>
+                    <td>
+                        <a class="destinations__link" href="{{ destination.get_absolute_url }}">{{ destination }}</a=>
+                    </td>
                     <td>
                         <a class="destinations__action-icon" href="{{ destination.get_absolute_url }}" title="View">
                             <img src="{% static 'images/detailing.svg' %}" alt="View" width="25" height="25">
