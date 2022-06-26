@@ -21,17 +21,17 @@
                 <tr>
                     <td>{{ destination }}</td>
                     <td>
-                        <a class="destinations__action-icon" href="{{ destination.get_absolute_url }}">
+                        <a class="destinations__action-icon" href="{{ destination.get_absolute_url }}" title="View">
                             <img src="{% static 'images/detailing.svg' %}" alt="View" width="25" height="25">
                         </a>
                     </td>
                     <td>
-                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/edit">
+                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/edit" title="Edit">
                             <img src="{% static 'images/editing.svg' %}" alt="Edit" width="25" height="25">
                         </a>
                     </td>
                     <td>
-                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/delete">
+                        <a class="destinations__action-icon" href="/destinations/{{ destination.id }}/delete" title="Delete">
                             <img src="{% static 'images/deleting.svg' %}" alt="Delete" width="25" height="25">
                         </a>
                     </td>
