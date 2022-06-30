@@ -466,6 +466,11 @@ label {
     justify-content: space-between;
     align-items: center;
 }
+.messages__message--info {
+    border: 2px solid #B8DAFF;
+    color: #004085;
+    background-color: #CCE5FF;
+}
 .messages__message--error {
     border: 2px solid #F5C6CB;
     color: #721C24;

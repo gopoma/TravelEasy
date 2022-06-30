@@ -56,6 +56,8 @@ def user_signup(request):
             last_name=last_name,
         )
         newUser.save()
+        messages.info(request, "User registered successfully")
+        messages.info(request, "Please login")
         return redirect("/auth/login")
     return render(request, "accounts/signup.html")
 
